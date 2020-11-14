@@ -1,0 +1,4237 @@
+{
+	"info": {
+		"_postman_id": "5bf80b83-545f-4d03-a119-4b67a7f30051",
+		"name": "PBS-eWHT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "inquiryEWhtByCompanyId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "31fa6f1e-1b1f-4e19-b157-04dea7bcd59b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{HEADER_KEY}}",
+						"value": "{{HEADER_VALUE}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"inquiryEWhtByCompanyId"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ระบุช่วง date มากกว่า 3 เดือน",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"01112020\",\n    \"dateTo\": \"07012021\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 06:55:48 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00004\",\n    \"responseDesc\": \"dateFrom - To : Over range.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ Pagination",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:11:38 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00003\",\n    \"responseDesc\": \"message request : Invalid data type.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น ED07 (PROCESSED_WITH_ERROR)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"ED07\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:03:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ payerTaxId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:17:37 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 2\n    },\n    \"eWht50TWRDFileList\": [\n        {\n            \"payeeTaxId\": \"4689908818071\",\n            \"payeeName\": \"คุณ ศรันย์ สามหนึ่ง\",\n            \"incomeAmt\": 15600,\n            \"whtAmt\": 390,\n            \"domesticFileName\": \"ED0062020110504.TXT\",\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"payeeTaxId\": \"4608342955041\",\n            \"payeeName\": \"นาย ศรีชัย สามสอง\",\n            \"incomeAmt\": 32500,\n            \"whtAmt\": 617.5,\n            \"domesticFileName\": \"ED0062020110504.TXT\",\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ payerTaxId ไม่ถูก format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"เทส\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:07:38 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00003\",\n    \"responseDesc\": \"payerTaxId : Invalid data type.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateForm แบบผิด format ",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"20201101\",\n    \"dateTo\": \"20201102\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:59:06 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"DateFrom : Invalid format date.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ companyId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"Alls\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:17:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 2\n    },\n    \"eWht50TWRDFileList\": [\n        {\n            \"payeeTaxId\": \"4689908818071\",\n            \"payeeName\": \"คุณ ศรันย์ สามหนึ่ง\",\n            \"incomeAmt\": 15600,\n            \"whtAmt\": 390,\n            \"domesticFileName\": \"ED0062020110504.TXT\",\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"payeeTaxId\": \"4608342955041\",\n            \"payeeName\": \"นาย ศรีชัย สามสอง\",\n            \"incomeAmt\": 32500,\n            \"whtAmt\": 617.5,\n            \"domesticFileName\": \"ED0062020110504.TXT\",\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:15:24 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"DateTo : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateTo แบบผิด format ",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"20201111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 10:51:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"DateTo : Invalid format date.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น All (All)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:04:31 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ CompanyId มากกว่า 30 characters",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508123942313012312321311\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:10:11 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น RD02 (CANNOT_DEBIT)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"RD02\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:02:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateFrom และ dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"\",\n    \"dateTo\": \"\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:14:13 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"DateFrom : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ Status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:12:19 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น RD01(DEBITED)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"RD01\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:02:21 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุครบทุกฟิลด์",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-msgHeader",
+								"value": "{\"ipAddress\":\"10.11.11.12\",\"channelId\":\"K-CORP\",\"rqUID\":\"1234567\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:04:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 2\n    },\n    \"eWht50TWRDFileList\": [\n        {\n            \"payeeTaxId\": \"4689908818071\",\n            \"payeeName\": \"คุณ ศรันย์ สามหนึ่ง\",\n            \"incomeAmt\": 15600,\n            \"whtAmt\": 390,\n            \"domesticFileName\": \"ED0062020110504.TXT\",\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"payeeTaxId\": \"4608342955041\",\n            \"payeeName\": \"นาย ศรีชัย สามสอง\",\n            \"incomeAmt\": 32500,\n            \"whtAmt\": 617.5,\n            \"domesticFileName\": \"ED0062020110504.TXT\",\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น ED08 (PROCESSED)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"ED08\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:04:31 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ payerTaxId มากกว่า 13 characters",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"110504317611100\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:11:06 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateFrom",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:15:53 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"DateFrom : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateFrom เป็นวันที่มากกว่า dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"06112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 05:00:34 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00005\",\n    \"responseDesc\": \"dateTo shouldn't be before dateFrom : Invalid Data.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ company แบบไม่ถูก format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"เทส\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:08:05 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น ED02 (PROCESSING)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"ED02\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:03:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status ไม่ถูกต้อง",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"EGAT008508\",\n    \"payerTaxId\": \"1105043176111\",\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"status\": \"เทส\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtByCompanyId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtByCompanyId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 04:13:39 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDFileList\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "inquiryEwhtByPayerTaxId",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{HEADER_KEY}}",
+						"value": "{{HEADER_VALUE}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"inquiryEwhtByPayerTaxId"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ระบุ Status เป็น KC04 (PROCESSED_WITH_ERROR)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"KC04\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:15:03 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:03:11 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น All (All)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:13:21 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 2\n    },\n    \"eWht50TWRDList\": [\n        {\n            \"payeeTaxId\": \"4689908818071\",\n            \"payeeName\": \"คุณ ศรันย์ สามหนึ่ง\",\n            \"whtAmt\": 390,\n            \"incomeAmt\": 15600,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"payeeTaxId\": \"4608342955041\",\n            \"payeeName\": \"นาย ศรีชัย สามสอง\",\n            \"whtAmt\": 617.5,\n            \"incomeAmt\": 32500,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ payerTaxId ไม่ถูก format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"เทส\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:07:12 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00003\",\n    \"responseDesc\": \"payerTaxId : Invalid data type.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateFrom แบบผิด format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"20201010\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:05:40 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"DateFrom : Invalid format date.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุครบทุกฟิลด์",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:00:40 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 2\n    },\n    \"eWht50TWRDList\": [\n        {\n            \"payeeTaxId\": \"4689908818071\",\n            \"payeeName\": \"คุณ ศรันย์ สามหนึ่ง\",\n            \"whtAmt\": 390,\n            \"incomeAmt\": 15600,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"payeeTaxId\": \"4608342955041\",\n            \"payeeName\": \"นาย ศรีชัย สามสอง\",\n            \"whtAmt\": 617.5,\n            \"incomeAmt\": 32500,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:04:24 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"DateTo : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุช่วงเวลามากกว่า 3 เดือน",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05022020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:04:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00004\",\n    \"responseDesc\": \"dateFrom - To : Over range.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateFrom เป็นวันที่มากกว่ามาก dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"06112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:08:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00005\",\n    \"responseDesc\": \"dateTo shouldn't be before dateFrom : Invalid Data.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น KC02 (CANNOT_DEBIT)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"KC02\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:14:20 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateTo แบบผิด format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"20201212\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 10:52:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"DateTo : Invalid format date.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ status แบบไม่ถูกต้อง",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"เทส\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:06:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น KC05 (PROCESSED)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"KC05\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:15:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น KC03 (PROCESSING)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"KC03\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:14:43 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 2\n    },\n    \"eWht50TWRDList\": [\n        {\n            \"payeeTaxId\": \"4689908818071\",\n            \"payeeName\": \"คุณ ศรันย์ สามหนึ่ง\",\n            \"whtAmt\": 390,\n            \"incomeAmt\": 15600,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"payeeTaxId\": \"4608342955041\",\n            \"payeeName\": \"นาย ศรีชัย สามสอง\",\n            \"whtAmt\": 617.5,\n            \"incomeAmt\": 32500,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ payerTaxId มากกว่า 13 characters",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"110504317611100\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:17:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ Pagination",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:03:34 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 20,\n        \"currentPage\": 1,\n        \"totalRows\": 2\n    },\n    \"eWht50TWRDList\": [\n        {\n            \"payeeTaxId\": \"4689908818071\",\n            \"payeeName\": \"คุณ ศรันย์ สามหนึ่ง\",\n            \"whtAmt\": 390,\n            \"incomeAmt\": 15600,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"payeeTaxId\": \"4608342955041\",\n            \"payeeName\": \"นาย ศรีชัย สามสอง\",\n            \"whtAmt\": 617.5,\n            \"incomeAmt\": 32500,\n            \"status\": \"Processing\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ payerTaxId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:02:36 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"payerTaxId : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateFrom",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"All\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:03:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"DateFrom : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDList\": null\n}"
+				},
+				{
+					"name": "ระบุ Status เป็น KC01 (DEBITED)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"payerTaxId\": \"1105043176111\",\n    \"status\": \"KC01\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:13:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWRDList\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "inquiryEWhtFileStatus",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{HEADER_KEY}}",
+						"type": "text",
+						"value": "{{HEADER_VALUE}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n     \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/inquiryEWhtFileStatus",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"inquiryEWhtFileStatus"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ไม่ระบุ dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"type": "text",
+								"value": "{{HEADER_VALUE}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtFileStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtFileStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:12:13 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"DateTo : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateFrom เป็นวันที่มากกว่า dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"type": "text",
+								"value": "{{HEADER_VALUE}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"06112020\",\n    \"dateTo\": \"05112020\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtFileStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtFileStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:12:33 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00005\",\n    \"responseDesc\": \"dateTo shouldn't be before dateFrom : Invalid Data.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ไม่ระบุ Pagination",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"type": "text",
+								"value": "{{HEADER_VALUE}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"paging\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtFileStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtFileStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:13:28 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 20,\n        \"currentPage\": 1,\n        \"totalRows\": 8\n    },\n    \"eWht50TWRDFileList\": [\n        {\n            \"totalTxn\": 1,\n            \"totalWhtAmt\": 1500,\n            \"totalIncomeAmt\": 30000,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020071601.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 10,\n            \"totalWhtAmt\": 2008.61,\n            \"totalIncomeAmt\": 200852.39,\n            \"status\": \"Successful\",\n            \"resultFileName\": \"ED0062020070306.FAIL\",\n            \"resultFilePath\": \".\\\\DOMESTIC_FILE_RESULT\\\\\",\n            \"domesticFileName\": \"ED0062020070306.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 1,\n            \"totalWhtAmt\": 33,\n            \"totalIncomeAmt\": 3333,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020090632.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 4,\n            \"totalWhtAmt\": 1214.89,\n            \"totalIncomeAmt\": 121486,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020090199.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 4,\n            \"totalWhtAmt\": 404,\n            \"totalIncomeAmt\": 40400.1,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020101722.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 6,\n            \"totalWhtAmt\": 252732.14,\n            \"totalIncomeAmt\": 19873735.27,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020100610.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 5,\n            \"totalWhtAmt\": 1255.39,\n            \"totalIncomeAmt\": 125536,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020100904.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 1,\n            \"totalWhtAmt\": 1433.6,\n            \"totalIncomeAmt\": 25600,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020102701.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุครบทุกฟิลด์",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"type": "text",
+								"value": "{{HEADER_VALUE}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"05112020\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtFileStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtFileStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:11:08 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 8\n    },\n    \"eWht50TWRDFileList\": [\n        {\n            \"totalTxn\": 1,\n            \"totalWhtAmt\": 1500,\n            \"totalIncomeAmt\": 30000,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020071601.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 10,\n            \"totalWhtAmt\": 2008.61,\n            \"totalIncomeAmt\": 200852.39,\n            \"status\": \"Successful\",\n            \"resultFileName\": \"ED0062020070306.FAIL\",\n            \"resultFilePath\": \".\\\\DOMESTIC_FILE_RESULT\\\\\",\n            \"domesticFileName\": \"ED0062020070306.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 1,\n            \"totalWhtAmt\": 33,\n            \"totalIncomeAmt\": 3333,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020090632.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 4,\n            \"totalWhtAmt\": 1214.89,\n            \"totalIncomeAmt\": 121486,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020090199.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 4,\n            \"totalWhtAmt\": 404,\n            \"totalIncomeAmt\": 40400.1,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020101722.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 6,\n            \"totalWhtAmt\": 252732.14,\n            \"totalIncomeAmt\": 19873735.27,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020100610.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 5,\n            \"totalWhtAmt\": 1255.39,\n            \"totalIncomeAmt\": 125536,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020100904.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        },\n        {\n            \"totalTxn\": 1,\n            \"totalWhtAmt\": 1433.6,\n            \"totalIncomeAmt\": 25600,\n            \"status\": \"Processing\",\n            \"domesticFileName\": \"ED0062020102701.TXT\",\n            \"domesticFilePath\": \"/Upload/Domestic/BACKUP\",\n            \"eWhtDate\": \"05/11/2020\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateFrom",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"type": "text",
+								"value": "{{HEADER_VALUE}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"\",\n    \"dateTo\": \"05112020\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtFileStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtFileStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:11:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"DateFrom : Is Required.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateFrom แบบผิด format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"type": "text",
+								"value": "{{HEADER_VALUE}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"20200510\",\n    \"dateTo\": \"05112020\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtFileStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtFileStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:13:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"DateFrom : Invalid format date.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				},
+				{
+					"name": "ระบุ dateTo แบบผิด format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"type": "text",
+								"value": "{{HEADER_VALUE}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateFrom\": \"05112020\",\n    \"dateTo\": \"20201111\",\n     \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEWhtFileStatus",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEWhtFileStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 10:53:36 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"DateTo : Invalid format date.\",\n    \"severity\": \"ERROR\",\n    \"paging\": null,\n    \"eWht50TWRDFileList\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "inquiryEwhtReceiptByTaxId",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{HEADER_KEY}}",
+						"value": "{{HEADER_VALUE}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": 20200827,\n    \"dateTo\": 20200827,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"inquiryEwhtReceiptByTaxId"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ไม่ระบุ taxId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"\",\n    \"dateFrom\": 20200827,\n    \"dateTo\": 20200827,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:17:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000001\",\n            \"receiptNo\": \"00000012202\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012202_P01630828000001.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000001\",\n            \"receiptNo\": \"00000012202\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012202_P01630828000001.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000002\",\n            \"receiptNo\": \"00000012203\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012203_P01630828000002.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000002\",\n            \"receiptNo\": \"00000012203\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012203_P01630828000002.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateFrom",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": \"\",\n    \"dateTo\": 20200827,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:17:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"dateFrom : Is Required.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": 20200827,\n    \"dateTo\": \"\",\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:18:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"dateTo : Is Required.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ dateFrom เป็นวันที่มากกว่า dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": 20200828,\n    \"dateTo\": 20200827,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:20:09 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWReceiptFileList\": []\n}"
+				},
+				{
+					"name": "ระบุ taxId มากกว่า 30 characters",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"010555514551801055551455181232432440\",\n    \"dateFrom\": 20200827,\n    \"dateTo\": 20200827,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:18:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 0\n    },\n    \"eWht50TWReceiptFileList\": []\n}"
+				},
+				{
+					"name": "ระบุ dateFrom แบบผิด format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": 20102020,\n    \"dateTo\": 20200827,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:19:33 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"dateFrom : Invalid format date.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ dateTo แบบผิด format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": 20200827,\n    \"dateTo\": 12122020,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 10:54:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"dateTo : Invalid format date.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ไม่ระบุ Pagination",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": 20200827,\n    \"dateTo\": 20200827,\n    \"paging\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:18:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 20,\n        \"currentPage\": 1,\n        \"totalRows\": 4\n    },\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000001\",\n            \"receiptNo\": \"00000012202\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012202_P01630828000001.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000001\",\n            \"receiptNo\": \"00000012202\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012202_P01630828000001.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000002\",\n            \"receiptNo\": \"00000012203\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012203_P01630828000002.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000002\",\n            \"receiptNo\": \"00000012203\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012203_P01630828000002.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุครบทุกฟิลด์",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taxId\": \"0105555145518\",\n    \"dateFrom\": 20200827,\n    \"dateTo\": 20200827,\n    \"paging\": {\n        \"currentPage\": 1,\n        \"rowsPerPage\": 10\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReceiptByTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReceiptByTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 07:16:23 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"paging\": {\n        \"rowsPerPage\": 10,\n        \"currentPage\": 1,\n        \"totalRows\": 4\n    },\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000001\",\n            \"receiptNo\": \"00000012202\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012202_P01630828000001.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000001\",\n            \"receiptNo\": \"00000012202\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012202_P01630828000001.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000002\",\n            \"receiptNo\": \"00000012203\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012203_P01630828000002.pdf\"\n        },\n        {\n            \"taxId\": \"0105555145518\",\n            \"sendDate\": \"20200910\",\n            \"paymentDate\": \"20200827\",\n            \"paymentNo\": \"01\",\n            \"filingNo\": \"P01630828000002\",\n            \"receiptNo\": \"00000012203\",\n            \"pndType\": \"PND01\",\n            \"filingType\": \"1\",\n            \"receiptPath\": \"/Download/RECEIPT/ARCHIVED/20200910\\\\\",\n            \"receiptFileName\": \"00000012203_P01630828000002.pdf\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "inquiryEwhtReportDailyByPayerTaxId",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "{{HEADER_KEY}}",
+						"value": "{{HEADER_VALUE}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC05\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"inquiryEwhtReportDailyByPayerTaxId"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ระบุ status เป็น KC05 (PROCESSED)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC05\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:11:34 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC05\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC05\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ status เป็น KC04 (PROCESSED_WITH_ERROR)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC04\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:11:04 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC04\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC04\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": \"\",\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:01:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"dateTo : Is Required.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ dateFrom ไม่ต้องถูกต้องตาม format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 20200819,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:05:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"dateFrom : Invalid format date.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ reportType เป็น 2 (EXCEL)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"2\",\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:08:43 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 2,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.xlsx\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 2,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.xlsx\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:03:05 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"status : Is Required.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ dateTo ไม่ต้องถูกต้องตาม format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 20201111,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC05\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 10:57:11 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00002\",\n    \"responseDesc\": \"dateTo : Invalid format date.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ไม่ระบุ kcorpId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:02:08 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ reportType",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"\",\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:02:49 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00005\",\n    \"responseDesc\": \"reportType : Invalid Data.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ kcorpId มากกว่า 8 characters",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT0085081110\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC05\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:20:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT0085081110\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC05\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT0085081110\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC05\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ status เป็น KC03 (PROCESSING)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:10:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC03\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC03\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุครบทุกฟิลด์",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:00:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ reportType เป็น 1 (PDF)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:08:12 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ dateFrom เป็นวันที่มากกว่า dateTo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 17072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:05:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"17072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_17072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"17072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_18072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"17072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_19072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"17072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_20072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"17072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_21072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ dateFrom",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": \"\",\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:01:26 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00001\",\n    \"responseDesc\": \"dateFrom : Is Required.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ reportType ไม่ถูกต้องตาม format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"เทส\",\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:07:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00003\",\n    \"responseDesc\": \"message request : Invalid data type.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ reportType เป็นเลขอื่นๆ (ไม่ใช่ 1,2)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"3\",\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:09:05 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00005\",\n    \"responseDesc\": \"reportType : Invalid Data.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ payerTaxId แบบไม่ถูกต้อง format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"เทส\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:07:10 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00003\",\n    \"responseDesc\": \"payerTaxId : Invalid data type.\",\n    \"severity\": \"ERROR\"\n}"
+				},
+				{
+					"name": "ระบุ payerTaxId มากกว่า 13 characters ",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443000\",\n \"reportType\": \"1\",\n \"status\": \"KC05\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Nov 2020 03:19:24 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443000\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC05\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443000_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443000\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC05\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443000_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ไม่ระบุ payerTaxId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:02:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT__15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT__16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ status เป็น KC01 (DEBITED)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:09:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC01\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC01\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ kcorpId เป็นตัวอักษร",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"เทส\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": 1,\n \"status\": \"All\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:06:20 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"เทส\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"เทส\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"All\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "ระบุ status เป็น KC02 (CANNOT_DEBIT)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{HEADER_KEY}}",
+								"value": "{{HEADER_VALUE}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n \"dateFrom\": 15072020,\n \"dateTo\": 16072020,\n \"kcorpId\": \"EGAT008508\",\n \"payerTaxId\": \"0107537002443\",\n \"reportType\": \"1\",\n \"status\": \"KC02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/inquiryEwhtReportDailyByPayerTaxId",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"inquiryEwhtReportDailyByPayerTaxId"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Nov 2020 08:10:31 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"WHT00000\",\n    \"responseDesc\": \"Success\",\n    \"severity\": \"SUCCESS\",\n    \"eWht50TWReceiptFileList\": [\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC02\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_15072020.pdf\"\n        },\n        {\n            \"payerTaxId\": \"0107537002443\",\n            \"kcorpId\": \"EGAT008508\",\n            \"dateFrom\": \"15072020\",\n            \"dateTo\": \"16072020\",\n            \"status\": \"KC02\",\n            \"reportType\": 1,\n            \"reportPath\": \"/Users/mrtompkin18/Desktop/TAX_WITHHELD_AND_PAID_DAILY_REPORT_0107537002443_16072020.pdf\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
